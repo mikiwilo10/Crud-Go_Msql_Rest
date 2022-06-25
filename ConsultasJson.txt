@@ -1,0 +1,39 @@
+//Devuelve una lista de Personas
+#Get 
+http://localhost:8080/actualizarPersona
+
+----------------------------------------
+//Enviar Con la siguiente estructura para ingresar una Persona
+#POST
+http://localhost:8080/crearPersona
+
+{
+    "IdPersona": 12,
+    "Nombre": "Xavier",
+    "Apellido": "Mainato",
+    "Email": "rouus@homestead.com",
+    "Genero": "Masculino"
+}
+----------------------------------------
+
+//Enviar el IdPersona para eliminar una Persona
+#DELETE
+http://localhost:8080/eliminarPersona/10
+----------------------------------------
+
+//Enviar el IdPersona para Buscar una Persona
+#GET
+http://localhost:8080/buscarPersona/12
+----------------------------------------
+
+//Enviar Con la siguiente estructura para actualizar una Persona
+#PUT
+http://localhost:8080/actualizarPersona
+
+{
+  "IdPersona": 13,
+  "Nombre": "luis",
+  "Apellido": "orellana",
+  "Email": "r@r.com",
+  "Genero": "Femenino"
+}
