@@ -31,9 +31,7 @@ func RestPersonas(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	//Envia o Responde de Tipo Json
 	w.Header().Set("Content-Type", "application/json")
-	//Enviamos un Codigo de estado correcto
 	w.WriteHeader(http.StatusAccepted)
 	json.NewEncoder(w).Encode(&ListaPersonas)
 }
@@ -83,7 +81,6 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 
 	controller.EliminarPersona1(r.Context(), conn.SQL, int64(dato))
 
-	//_, err := p.repo.Delete(r.Context(), int64(i))
 	fmt.Fprintf(w, "La Persona con ID %v fue eliminada", dato)
 
 }
@@ -103,7 +100,6 @@ func BuscarPersonaId(w http.ResponseWriter, r *http.Request) {
 
 	per := controller.BuscarPersona1(r.Context(), conn.SQL, int64(dato))
 
-	//_, err := p.repo.Delete(r.Context(), int64(i))
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(per)
 }

@@ -7,13 +7,11 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// DB ...
 type DB struct {
 	SQL *sql.DB
 	// Mgo *mgo.database
 }
 
-// DBConn ...
 var dbConn = &DB{}
 
 func ConexionBD() (*DB, error) {
@@ -33,20 +31,3 @@ func ConexionBD() (*DB, error) {
 	fmt.Println("Success!")
 	return dbConn, err
 }
-
-// // ConnectSQL ...
-// func ConnectSQL(host, port, uname, pass, dbname string)  {
-// 	dbSource := fmt.Sprintf(
-// 		"root:%s@tcp(%s:%s)/%s?charset=utf8",
-// 		pass,
-// 		host,
-// 		port,
-// 		dbname,
-// 	)
-// 	d, err := sql.Open("mysql", dbSource)
-// 	if err != nil {
-// 		panic(err)
-// 	}
-// 	dbConn.SQL = d
-// 	return dbConn, err
-// }

@@ -5,8 +5,6 @@ import (
 	"context"
 	"database/sql"
 	"log"
-	// "strconv"
-	// "github.com/gorilla/mux"
 )
 
 func GetPersonas1(ctx context.Context, db *sql.DB) (model.AllPersonas, error) {
@@ -27,7 +25,6 @@ func GetPersonas1(ctx context.Context, db *sql.DB) (model.AllPersonas, error) {
 		ListaPersonas1 = append(ListaPersonas1, per)
 	}
 
-	// log.Println("%+v",ListaPersonas1)
 	return ListaPersonas1, err
 
 }
@@ -68,15 +65,12 @@ func BuscarPersona1(ctx context.Context, db *sql.DB, id int64) model.Persona {
 	var per model.Persona
 	query := "Select * From Persona where IdPersona=?"
 
-	//err := db.QueryRow("SELECT * FROM users WHERE name = $1", name).Scan(&u.Id, &u.Name, &u.Score)
-
 	db.QueryRowContext(ctx, query, id).Scan(&per.IdPersona, &per.Nombre, &per.Apellido, &per.Email, &per.Genero)
 
 	return per
 }
 
 func UpdatePersona1(ctx context.Context, db *sql.DB, p *model.Persona) error {
-	//	var p model.Persona
 
 	query := "Update Persona SET Nombre=?, Apellido=?, Email=?, Genero=? where IdPersona=?"
 
